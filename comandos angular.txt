@@ -1,0 +1,16 @@
+comandos angular
+
+ng new nombredelproyecto = creacion del proyecto
+ng s = correr el servidor
+cd .\src\app\Components
+cd..\..\..\
+ng g c nombrecomponente = crea los componentes
+ng g s Api = crea el servicio para el consumo
+
+-----------------------------------------------------------
+
+Angular material
+
+ng add @angular/material = instalar angular material
+ng generate @angular/material:navigation menu   = menu 
+ng generate @angular/material:table <component-name>

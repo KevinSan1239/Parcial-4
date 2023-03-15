@@ -1,0 +1,1 @@
+builder.Services.AddDbContext<SanMiguelContext>(options => options.UseSqlServer("Server=LAPTOP-A231SJVD;Database=sanmiguel;Trusted_Connection=True;MultipleActiveResultSets=true"));

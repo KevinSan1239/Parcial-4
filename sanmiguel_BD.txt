@@ -1,0 +1,113 @@
+use sanmiguel;
+
+CREATE TABLE Persona(
+id_persona int IDENTITY(1,1) PRIMARY KEY,
+nombre varchar (20) NOT NULL,
+apellidos varchar (20) NOT NULL,
+rol varchar (15) NOT NULL,
+correo varchar (50) NOT NULL,
+genero varchar(10) NOT NULL,<
+documento varchar (25) NOT NULL,
+ciudad varchar (10) NOT NULL,
+);
+
+
+INSERT INTO Persona values ('Juan','Suarez','Cliente','js@outlook.com','masculino','1033893','Bogota');
+INSERT INTO Persona values ('Camilo','Torres','Cliente','ct@outlook.com','masculino','1033493','Bogota');
+INSERT INTO Persona values ('Kevin','Sanchez','Cliente','ks@outlook.com','masculino','10332293','Bogota');
+INSERT INTO Persona values ('Jorge','Muñoz','Cliente','jm@outlook.com','masculino','103123893','Bogota');
+INSERT INTO Persona values ('Jaime','Acosta','Cliente','ja@outlook.com','masculino','1033111893','Bogota');
+
+
+
+CREATE TABLE Cliente (
+id_cliente int IDENTITY(1,1) PRIMARY KEY,
+direccion varchar (15) NOT NULL,
+id_persona int, 
+);
+
+INSERT INTO Cliente values ('Cll 23','1');
+INSERT INTO Cliente values ('Cll 33','2');
+INSERT INTO Cliente values ('Cll 43','3');
+INSERT INTO Cliente values ('Cll 53','4');
+INSERT INTO Cliente values ('Cll 63','5');
+
+
+
+
+CREATE TABLE Usuario (
+id_usuario int IDENTITY(1,1) PRIMARY KEY,
+nom_usuario varchar(50) NOT NULL,
+contraseña varchar(50) NOT NULL,
+rol varchar(50) NOT NULL,
+id_persona int,
+);
+
+INSERT INTO Usuario values ('ALozano','1234','Vendedor','1');
+INSERT INTO Usuario values ('FRodrigez','1234','Vendedor','2');
+INSERT INTO Usuario values ('JSanchez','1234','Vendedor','3');
+
+
+CREATE TABLE Factura (
+
+id_factura int IDENTITY(1,1) PRIMARY KEY,
+fecha date NOT NULL,
+total_factura int NOT NULL,
+id_cliente int, 
+id_producto int,
+cantidad int,
+);
+
+set dateformat dmy;
+
+INSERT INTO Factura VALUES ('23-03-2023','1000000','1','1','10');
+INSERT INTO Factura VALUES ('23-04-2023','1000005','2','2','8');
+INSERT INTO Factura VALUES ('23-05-2023','1000006','3','3','9');
+
+
+CREATE TABLE Devolucion(
+
+id_Devolucion int IDENTITY(1,1) PRIMARY KEY,
+fecha date not null,
+cantidad int,
+estado varchar (50) not null,
+id_producto int,
+id_factura int,
+);
+
+INSERT INTO Devolucion VALUES ('25-03-2023','1','Vencido','1','1');
+INSERT INTO Devolucion VALUES ('29-03-2023','2','Mal olor','2','2');
+
+
+CREATE TABLE Producto(
+id_producto int IDENTITY(1,1) PRIMARY KEY,
+nombre varchar (50) NOT NULL,
+descripcion varchar (50) NOT NULL,
+cantidad int,
+precio_venta int,
+costo int,
+tipo_producto varchar (50) not null,
+proveedor varchar (50) not null,
+);
+
+INSERT INTO Producto VALUES ('Pollo','Desmenusado','5','10000','10020','avicola','Jose');
+INSERT INTO Producto VALUES ('Huevos','Unidad','5','1000','1020','avicola','Efrain');
+INSERT INTO Producto VALUES ('Leche','Litro','1','1500','1700','Lacteos','Fernando');
+INSERT INTO Producto VALUES ('Salchichas','Paquete','2','2500','2900','Embutidos','Iker');
+
+
+
+CREATE TABLE Inventario(
+id_inventario int IDENTITY(1,1) PRIMARY KEY,
+fecha_entrada date not null,
+fecha_vencimiento date not null,
+stock int,
+id_producto int,
+);
+
+INSERT INTO Inventario VALUES ('10-02-2023','12-04-2023','10','1');
+INSERT INTO Inventario VALUES ('10-02-2023','18-04-2023','10','1');
+INSERT INTO Inventario VALUES ('10-02-2023','02-05-2023','10','3');
+INSERT INTO Inventario VALUES ('10-02-2023','02-05-2023','10','3');
+INSERT INTO Inventario VALUES ('10-02-2023','18-04-2023','2','4');
+INSERT INTO Inventario VALUES ('10-02-2023','12-04-2023','2','4');

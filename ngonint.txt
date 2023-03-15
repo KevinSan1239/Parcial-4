@@ -1,0 +1,7 @@
+constructor(public api:ApiService){}
+
+  ngOnInit(): void {
+    var response=this.api.getAll("Clientes") //CLIENTES NOMBRE DEL CONTROLADOR EN EL SWAGGER//
+    console.log(response);
+
+    }

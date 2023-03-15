@@ -1,0 +1,21 @@
+apiservice.ts
+
+export class ApiService {
+
+  // servicio get para los datos de la BD//
+  constructor(public http: HttpClient) { }
+  
+  url= "https://localhost:7200/api/" //url swagger//
+  async getAll(controller:string){
+    var response:any
+    await this.http.get(this.url+controller).toPromise().then((res=>{
+      response=res
+    }
+    )
+
+    )
+    return response;
+  }
+}
+
+
