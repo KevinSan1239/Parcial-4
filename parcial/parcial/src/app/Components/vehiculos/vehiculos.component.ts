@@ -9,7 +9,8 @@ import { AppservicioService } from 'src/app/Servicies/appservicio.service';
 export class VehiculosComponent implements OnInit {
   
   constructor(public api:AppservicioService){}
-
+  public displayedColumns:any=[];
+  public dataSource:any=[];
   ngOnInit(): void {
 
     this.function_get_final();
@@ -19,7 +20,8 @@ export class VehiculosComponent implements OnInit {
 
     public function_get_final(){
       this.api.function_consumo('Vehiculoes').subscribe((reso:any)=>{
-        console.log(reso)
+        this.displayedColumns=Object.keys(reso[0]);
+          this.dataSource=reso;
       })
     }
 

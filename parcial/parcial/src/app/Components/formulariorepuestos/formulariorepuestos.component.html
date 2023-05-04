@@ -1,0 +1,50 @@
+<form [formGroup]="addressForm" novalidate (ngSubmit)="onSubmit()">
+  <mat-card class="shipping-card">
+    <mat-card-header>
+      <mat-card-title>Formularios de los repuestos</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="idrepuestos" formControlName="idrespuesto">
+            <mat-error *ngIf="addressForm.controls['idrespuesto'].hasError('required')">
+              Id es <strong>requerido</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="valor" formControlName="valor">
+            <mat-error *ngIf="addressForm.controls['valor'].hasError('required')">
+              Valor es <strong>requerido</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="tipo" formControlName="tipo">
+            <mat-error *ngIf="addressForm.controls['tipo'].hasError('required')">
+              Tipo es <strong>requerido</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <textarea matInput placeholder="vehiculo" formControlName="vehiculos"></textarea>
+            <mat-error *ngIf="addressForm.controls['vehiculos'].hasError('required')">
+              Vehiculos es <strong>requerido</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" type="submit">Submit</button>
+    </mat-card-actions>
+  </mat-card>
+</form>
